@@ -878,7 +878,7 @@ do -- Library
                                     --
                                     Content = nil
                                     --
-                                    self.Opened[Type][Self] = nil
+                                    Window.Opened[Type][Self] = nil
                                 end
                                 --
                                 function Content:Input(Mouse)
