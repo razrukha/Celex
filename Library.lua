@@ -776,7 +776,7 @@ do -- Library
                             }
                             --
                             do -- Init
-                                self:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
+                                Window:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
                             end
                             --
                             do -- Objects
@@ -925,7 +925,7 @@ do -- Library
                             do -- Setup
                                 Self.Objects["Arrow"].Rotation = 180
                                 --
-                                self.Opened[Type][Self] = Content
+                                Window.Opened[Type][Self] = Content
                             end
                         end
                         --
@@ -940,7 +940,7 @@ do -- Library
                             }
                             --
                             do -- Init
-                                self:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
+                                Window:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
                             end
                             --
                             do -- Objects
@@ -1092,7 +1092,7 @@ do -- Library
                                 Content:Update("Hue")
                                 if Self.Alpha then Content:Update("Alpha") end
                                 --
-                                self.Opened[Type][Self] = Content
+                                Window.Opened[Type][Self] = Content
                             end
                         end
                         --
@@ -1150,7 +1150,7 @@ do -- Library
                                     TextColor3 = "Dark Contrast"
                                 })
                                 --
-                                self.Opened[Type][Self] = Content
+                                Window.Opened[Type][Self] = Content
                             end
                         end
                         --
@@ -1164,7 +1164,7 @@ do -- Library
                             }
                             --
                             do -- Init
-                                self:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
+                                Window:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
                             end
                             --
                             do -- Objects
@@ -1276,7 +1276,7 @@ do -- Library
                             end
                             --
                             do -- Setup
-                                self.Opened[Type][Self] = Content
+                                Window.Opened[Type][Self] = Content
                             end
                         end
                     end
