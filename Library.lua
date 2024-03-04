@@ -688,8 +688,8 @@ do -- Library
                     end
                     --
                     function Window:Update(Began)
-                        if self.Init then
-                            for Bind, Value in next, self.Binds do
+                        if Window.Init then
+                            for Bind, Value in next, Window.Binds do
                                 local State = Bind.State
                                 --
                                 if #State > 0 then
