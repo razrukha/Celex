@@ -620,6 +620,7 @@ do -- Library
                     Binds = {},
                     --
                     Inset = GuiService:GetGuiInset(),
+                    State = true,
                     Init = false,
                     --
                     Self = (self.Content and self),
@@ -675,20 +676,20 @@ do -- Library
                 --
                 do -- Functions
                     function Window:Initialise()
-                        Window.Objects["Stamp"].Position = UDim2.new(0, (Window.Objects["Text"].TextBounds.X), 0, -1)
+                        self.Objects["Stamp"].Position = UDim2.new(0, (self.Objects["Text"].TextBounds.X), 0, -1)
                         --
-                        local Size = (1 / #Window.Pages)
+                        local Size = (1 / #self.Pages)
                         --
-                        for Index, Value in next, Window.Pages do
+                        for Index, Value in next, self.Pages do
                             Value:Initialise(Size)
                         end
                         --
-                        Window.Init = true
+                        self.Init = true
                     end
                     --
                     function Window:Update(Began)
-                        if Window.Init then
-                            for Bind, Value in next, Window.Binds do
+                        if self.Init then
+                            for Bind, Value in next, self.Binds do
                                 local State = Bind.State
                                 --
                                 if #State > 0 then
@@ -722,39 +723,49 @@ do -- Library
                         end
                     end
                     --
-                    function Window:Close(Self, Type)
-                        local Opened = false
+                    function Window:Switch(State)
+                        self.State = State
                         --
-                        for Index, Value in next, Window.Opened do
-                            for Index2, Value2 in next, Value do
-                                if Index2 == Self and Index == Type then
-                                    Opened = true
-                                else
-                                    Value2:Close()
-                                end
+                        self.Objects["Screen_Outline"].Visible = self.State
+                    end
+                    --
+                    do -- Reposition
+                        if not Window.Self then
+                            function Window:Reposition(Location)
+                                local Size = Workspace.CurrentCamera.ViewportSize
+                                --
+                                self.Objects["Screen_Outline"].Position = UDim2.new(0, math.clamp((Location.X - self.Drag.X), 5, (Size.X - self.Size.X - 5)), 0, math.clamp((Location.Y - self.Drag.Y + self.Inset.Y), 5, (Size.Y - self.Size.Y - 5)))
                             end
-                        end
-                        --
-                        return Opened
-                    end
-                    --
-                    function Window:Open(Content, Type)
-                        local Opened = Window:Close(Content, Type)
-                        --
-                        if not Opened then
-                            Window.Content[Type](Content, Type)
-                        end
-                    end
-                    --
-                    if not Window.Self then
-                        function Window:Reposition(Location)
-                            local Size = Workspace.CurrentCamera.ViewportSize
-                            --
-                            Window.Objects["Screen_Outline"].Position = UDim2.new(0, math.clamp((Location.X - Window.Drag.X), 5, (Size.X - Window.Size.X - 5)), 0, math.clamp((Location.Y - Window.Drag.Y + Window.Inset.Y), 5, (Size.Y - Window.Size.Y - 5)))
                         end
                     end
                     --
                     do -- Content
+                        do -- Functions
+                            function Window:Close(Self, Type)
+                                local Opened = false
+                                --
+                                for Index, Value in next, self.Opened do
+                                    for Index2, Value2 in next, Value do
+                                        if Index2 == Self and Index == Type then
+                                            Opened = true
+                                        else
+                                            Value2:Close()
+                                        end
+                                    end
+                                end
+                                --
+                                return Opened
+                            end
+                            --
+                            function Window:Open(Content, Type)
+                                local Opened = self:Close(Content, Type)
+                                --
+                                if not Opened then
+                                    self.Content[Type](Content, Type)
+                                end
+                            end
+                        end
+                        --
                         function Window.Content.Dropdown(Self, Type)
                             local Content = {
                                 Connections = {},
@@ -765,7 +776,7 @@ do -- Library
                             }
                             --
                             do -- Init
-                                Window:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
+                                self:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
                             end
                             --
                             do -- Objects
@@ -867,12 +878,12 @@ do -- Library
                                     --
                                     Content = nil
                                     --
-                                    Window.Opened[Type][Self] = nil
+                                    self.Opened[Type][Self] = nil
                                 end
                                 --
                                 function Content:Input(Mouse)
                                     if Content.Init or ((tick() - Content.Tick) >= 0.05) then
-                                        local Location = (Utility.General:Location() - Window.Inset)
+                                        local Location = (Utility.General:Location() - self.Inset)
                                         --
                                         local ContentPosition = Content.Objects["Content"].AbsolutePosition
                                         local ContentSize = Content.Objects["Content"].AbsoluteSize
@@ -914,7 +925,7 @@ do -- Library
                             do -- Setup
                                 Self.Objects["Arrow"].Rotation = 180
                                 --
-                                Window.Opened[Type][Self] = Content
+                                self.Opened[Type][Self] = Content
                             end
                         end
                         --
@@ -929,7 +940,7 @@ do -- Library
                             }
                             --
                             do -- Init
-                                Window:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
+                                self:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
                             end
                             --
                             do -- Objects
@@ -1081,7 +1092,7 @@ do -- Library
                                 Content:Update("Hue")
                                 if Self.Alpha then Content:Update("Alpha") end
                                 --
-                                Window.Opened[Type][Self] = Content
+                                self.Opened[Type][Self] = Content
                             end
                         end
                         --
@@ -1139,7 +1150,7 @@ do -- Library
                                     TextColor3 = "Dark Contrast"
                                 })
                                 --
-                                Window.Opened[Type][Self] = Content
+                                self.Opened[Type][Self] = Content
                             end
                         end
                         --
@@ -1153,7 +1164,7 @@ do -- Library
                             }
                             --
                             do -- Init
-                                Window:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
+                                self:Scroll(Self.Section.Objects["Content"], Self.Objects["Holder"])
                             end
                             --
                             do -- Objects
@@ -1265,7 +1276,7 @@ do -- Library
                             end
                             --
                             do -- Setup
-                                Window.Opened[Type][Self] = Content
+                                self.Opened[Type][Self] = Content
                             end
                         end
                     end
