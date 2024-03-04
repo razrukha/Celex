@@ -883,7 +883,7 @@ do -- Library
                                 --
                                 function Content:Input(Mouse)
                                     if Content.Init or ((tick() - Content.Tick) >= 0.05) then
-                                        local Location = (Utility.General:Location() - self.Inset)
+                                        local Location = (Utility.General:Location() - Window.Inset)
                                         --
                                         local ContentPosition = Content.Objects["Content"].AbsolutePosition
                                         local ContentSize = Content.Objects["Content"].AbsoluteSize
