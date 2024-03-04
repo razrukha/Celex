@@ -29,11 +29,11 @@ local Library, Utility, Flags = {
 			["ButtonL2"] = "L2", ["ButtonR2"] = "R2", ["ButonL1"] = "L1", ["ButtonR1"] = "R1", ["ButtonStart"] = "St", ["ButtonSelect"] = "Sl", ["ButtonY"] = "Cy", ["ButtonX"] = "Cx", ["ButtonA"] = "Ca", ["ButtonB"] = "Cb", ["ButtonL3"] = "L3", ["ButtonR3"] = "R3", ["DPadUp"] = "Up", ["DPadLeft"] = "Lf", ["DPadDown"] = "Dw", ["DPadRight"] = "Rg"
 		},
         Modes = {
-            "on hold",
-            "off hold",
-            "on toggle",
-            "off toggle",
-            "always on"
+            "On Hold",
+            "Off Hold",
+            "On Toggle",
+            "Off Toggle",
+            "Always On"
         }
 	},
     Presets = {
@@ -2476,7 +2476,7 @@ do -- Library
                         Self = Self,
                         --
                         State = (Utility.Table:Property(Properties, "State", "Current", "Default", "Color", "Def")),
-                        Mode = (Utility.Table:Property(Properties, "Mode", "Type") or "on hold"),
+                        Mode = (Utility.Table:Property(Properties, "Mode", "Type") or "On Hold"),
                         Disable = (Utility.Table:Property(Properties, "Disabled", "Disable", "NoMode") or false),
                         Flag = (Utility.Table:Property(Properties, "Flag", "Pointer")),
                         Callback = (Utility.Table:Property(Properties, "Callback", "Function", "Func", "Return"))
@@ -2517,16 +2517,16 @@ do -- Library
                         function Content:Adjust(Mode)
                             Content.Mode = Mode
                             --
-                            Content.Active = (Content.Mode == "off hold" or Content.Mode == "off toggle" or Content.Mode == "always on")
+                            Content.Active = (Content.Mode == "Off Hold" or Content.Mode == "Off Toggle" or Content.Mode == "Always On")
                         end
                         --
                         function Content:Update(Type)
                             local Previous = Content.Active
                             --
-                            if Content.Mode ~= "always on" then
-                                if Content.Mode == "on hold" or Content.Mode == "off hold" then
+                            if Content.Mode ~= "Always On" then
+                                if Content.Mode == "On Hold" or Content.Mode == "Off Hold" then
                                     Content.Active = not Content.Active
-                                elseif Content.Mode == "on toggle" or Content.Mode == "off toggle" then
+                                elseif Content.Mode == "On Toggle" or Content.Mode == "Off Toggle" then
                                     if Type then
                                         Content.Active = not Content.Active
                                     end
