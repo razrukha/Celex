@@ -544,13 +544,11 @@ do -- Library
             --
             do -- Connections
                 SizeConnection = Utility.General:Connect(Objects["Content"]:GetPropertyChangedSignal("AbsoluteSize"), function()
-                    warn(Objects["Content"])
-                    Objects["Bar"].Visible = (Objects["List"].AbsoluteContentSize.Y > Objects["List"].AbsoluteSize.Y)
+                    Objects["Bar"].Visible = ((Objects["Content"].AbsoluteCanvasSize.Y - Objects["Content"].AbsoluteWindowSize.Y) > 0)
                 end)
                 --
                 ContentSizeConnection = Utility.General:Connect(Objects["List"]:GetPropertyChangedSignal("AbsoluteContentSize"), function()
-                    warn(Objects["List"])
-                    Objects["Bar"].Visible = (Objects["List"].AbsoluteContentSize.Y > Objects["List"].AbsoluteSize.Y)
+                    Objects["Bar"].Visible = ((Objects["Content"].AbsoluteCanvasSize.Y - Objects["Content"].AbsoluteWindowSize.Y) > 0)
                 end)
             end
             --
