@@ -2510,6 +2510,8 @@ do -- Library
                         end
                         --
                         function Content:Update(Type)
+                            local Previous = Content.Active
+                            --
                             if Content.Mode ~= "always on" then
                                 if Content.Mode == "on hold" or Content.Mode == "off hold" then
                                     Content.Active = not Content.Active
@@ -2520,7 +2522,9 @@ do -- Library
                                 end
                             end
                             --
-                            Content.Callback(Content.Active)
+                            if Content.Active ~= Previous then
+                                Utility.General:Call(Content.Callback, Content.Active, Previous)
+                            end
                         end
                     end
                     --
