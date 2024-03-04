@@ -2491,8 +2491,6 @@ do -- Library
                             Content.Objects["Value"].Text = ("[%s]"):format(#Content.State > 0 and (Utility.Inputs.Shortened[Content.State[2]] or Content.State[2]) or "..")
                             --
                             Content:Adjust(Content.Mode)
-                            --
-                            Utility.General:Call(Content.Callback, Color, Content.State[4])
                         end
                         --
                         function Content:Get(Raw)
@@ -2521,6 +2519,8 @@ do -- Library
                                     end
                                 end
                             end
+                            --
+                            Content.Callback(Content.Active)
                         end
                     end
                     --
