@@ -2537,6 +2537,12 @@ do -- Library
                                 Utility.General:Call(Content.Callback, Content.Active, Previous)
                             end
                         end
+                        --
+                        function Content:Activate(State)
+                            if Content.Mode ~= "Always On" then
+                                Content.State = State
+                            end
+                        end
                     end
                     --
                     do -- Connections
