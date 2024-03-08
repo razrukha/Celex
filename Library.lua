@@ -1504,6 +1504,7 @@ do -- Library
                         do -- Functions
                             function Item:Update()
                                 self.Active = (Content.Short == "string")
+                                print(self.Active, Content.Short)
                                 --
                                 if Content.Short then
                                     self.Objects["Holder"].Visible = true
@@ -1527,8 +1528,9 @@ do -- Library
                     function Binds:Update()
                         local Count = 0
                         --
-                        for Index, Value in next, self.Items do
-                            if Value.Active then
+                        for Index, Item in next, self.Items do
+                            if Item.Active then
+                                warn("Active")
                                 Count += 1
                             end
                         end
