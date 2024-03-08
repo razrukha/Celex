@@ -1477,7 +1477,7 @@ do -- Library
                     --
                     Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background", nil, nil, 1000)
                     --
-                    Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 0, 0, 2), UDim2.new(1, 0, 1, -4))
+                    Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 2, 0, 2), UDim2.new(1, -4, 1, -4))
                 end
                 --
                 do -- Functions
