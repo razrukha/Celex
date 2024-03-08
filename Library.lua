@@ -1478,8 +1478,6 @@ do -- Library
                 do -- Setup
                     Flags[Binds.Window]["Binds"] = Binds
                     --
-                    Binds:Update()
-                    --
                     return Binds
                 end
             end
