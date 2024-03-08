@@ -1374,11 +1374,11 @@ do -- Library
                     --
                     Watermark.Objects["Gradient"] = Library.Objects:Holder(nil, Watermark.Objects["Frame"], UDim2.new(0, 1, 0, 1), UDim2.new(1, -2, 0, 2))
                     --
-                    Watermark.Objects["Gradient_Line1"] = Library.Objects:Frame(nil, "Light Contrast", nil, nil, nil, 0, Watermark.Objects["Gradient"], nil, UDim2.new(1, 0, 0, 2))
-                    Watermark.Objects["Gradient_Line2"] = Library.Objects:Frame(nil, "Outline", 0.45, nil, nil, 0, Watermark.Objects["Gradient"], UDim2.new(0, 0, 0, 1), UDim2.new(1, 0, 0, 1))
+                    Watermark.Objects["Gradient_Line1"] = Library.Objects:Frame(nil, "Light Contrast", nil, nil, nil, 0, Watermark.Objects["Gradient"], nil, UDim2.new(1, 0, 0, 2), nil, 1000)
+                    Watermark.Objects["Gradient_Line2"] = Library.Objects:Frame(nil, "Outline", 0.45, nil, nil, 0, Watermark.Objects["Gradient"], UDim2.new(0, 0, 0, 1), UDim2.new(1, 0, 0, 1), nil, 1000)
                     --
-                    Watermark.Objects["Text_Outline"] = Library.Objects:Text(Vector2.new(0, 0.5), Watermark.Objects["Frame"], UDim2.new(0, 1, 0.5, 2), UDim2.new(1, 0, 1, -6), "", "Outline", "Center")
-                    Watermark.Objects["Text"] = Library.Objects:Text(nil, Watermark.Objects["Text_Outline"], UDim2.new(0, -1, 0, -1), UDim2.new(1, 0, 1, 0), "", "Light Text", "Center")
+                    Watermark.Objects["Text_Outline"] = Library.Objects:Text(Vector2.new(0, 0.5), Watermark.Objects["Frame"], UDim2.new(0, 1, 0.5, 2), UDim2.new(1, 0, 1, -6), "", "Outline", "Center", 1000)
+                    Watermark.Objects["Text"] = Library.Objects:Text(nil, Watermark.Objects["Text_Outline"], UDim2.new(0, -1, 0, -1), UDim2.new(1, 0, 1, 0), "", "Light Text", "Center", 1000)
                 end
                 --
                 do -- Functions
