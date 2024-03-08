@@ -700,6 +700,10 @@ do -- Library
                             Value:Initialise(Size)
                         end
                         --
+                        if not Window.Self then
+                            Flags[Window]["Binds"]:Update()
+                        end
+                        --
                         self.Init = true
                     end
                     --
@@ -1491,11 +1495,14 @@ do -- Library
                         do -- Objects
                             Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17))
                             --
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Content.Name, "Light Text", nil, 1000)
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N")), "Light Text", "Right", 1000)
+                            Item.Objects["Name"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Content.Name, "Light Text", nil, 1000)
+                            Item.Objects["State"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N")), "Light Text", "Right", 1000)
                         end
                         --
                         do -- Functions
+                            function Item:Update()
+                                Item.Objects["State"].Text = ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N"))
+                            end
                         end
                         --
                         do -- Setup
@@ -1512,11 +1519,6 @@ do -- Library
                 --
                 do -- Setup
                     Flags[Binds.Window]["Binds"] = Binds
-                    --
-                    Binds:Insert({Name = "Assist", Short = "Ins", Active = true})
-                    Binds:Insert({Name = "Silent", Short = "E", Active = false})
-                    --
-                    Binds:Update()
                     --
                     return Binds
                 end
@@ -2655,6 +2657,10 @@ do -- Library
                         --
                         if Content.Flag then
                             Flags[Content.Window][(Self.Flag and (Self.Flag .. " ") or "") .. Content.Flag] = Content
+                        end
+                        --
+                        if Content.Name then
+                            Binds:Insert(Content)
                         end
                         --
                         return Content
