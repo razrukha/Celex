@@ -1512,6 +1512,8 @@ do -- Library
                                 else
                                     Item.Objects["Holder"].Visible = false
                                 end
+                                --
+                                Binds:Update()
                             end
                         end
                         --
