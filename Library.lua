@@ -1474,7 +1474,7 @@ do -- Library
                     Binds.Objects["Text_Outline"] = Library.Objects:Text(Vector2.new(0, 0), Binds.Objects["Frame"], UDim2.new(0, 1, 0, 5), UDim2.new(1, 0, 0, 15), "", "Outline", "Center")
                     Binds.Objects["Text"] = Library.Objects:Text(nil, Binds.Objects["Text_Outline"], UDim2.new(0, -1, 0, -1), UDim2.new(1, 0, 1, 0), "Binds", "Light Text", "Center")
                     --
-                    Content.Objects["Holder_Outline"], Content.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background")
+                    Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background")
                 end
                 --
                 do -- Setup
