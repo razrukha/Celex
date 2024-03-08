@@ -1503,14 +1503,14 @@ do -- Library
                         --
                         do -- Functions
                             function Item:Update()
-                                Item.Active = (Content.Short == "string")
+                                self.Active = (Content.Short == "string")
                                 --
                                 if Content.Short then
-                                    Item.Objects["Holder"].Visible = true
+                                    self.Objects["Holder"].Visible = true
                                     --
-                                    Item.Objects["State"].Text = ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N"))
+                                    self.Objects["State"].Text = ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N"))
                                 else
-                                    Item.Objects["Holder"].Visible = false
+                                    self.Objects["Holder"].Visible = false
                                 end
                                 --
                                 Binds:Update()
@@ -1527,7 +1527,7 @@ do -- Library
                     function Binds:Update()
                         local Count = 0
                         --
-                        for Index, Value in next, Binds.Items do
+                        for Index, Value in next, self.Items do
                             if Value.Active then
                                 Count += 1
                             end
