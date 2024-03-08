@@ -1478,6 +1478,8 @@ do -- Library
                     Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background", nil, nil, 1000)
                     --
                     Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 4, 0, 2), UDim2.new(1, -8, 1, -4))
+                    --
+                    Library.Objects:List(nil, Binds.Objects["Holder"], nil, nil, nil)
                 end
                 --
                 do -- Functions
@@ -1505,7 +1507,8 @@ do -- Library
                 end
                 --
                 do -- Setup
-                    Binds:Insert({Name = "Aimbot", Short = "Ins", Active = true})
+                    Binds:Insert({Name = "Assist", Short = "Ins", Active = true})
+                    Binds:Insert({Name = "Silent", Short = "E", Active = false})
                     --
                     Flags[Binds.Window]["Binds"] = Binds
                     --
