@@ -1487,10 +1487,10 @@ do -- Library
                         }
                         --
                         do -- Objects
-                            Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 18))
+                            Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17))
                             --
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, Index * 15), UDim2.new(1, 0, 0, 15), Name, "Light Text", nil, 1000)
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, Index * 15), UDim2.new(1, 0, 0, 15), "[Ins]", "Light Text", "Right", 1000)
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Name, "Light Text", nil, 1000)
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), "[Ins]", "Light Text", "Right", 1000)
                         end
                         --
                         do -- Functions
