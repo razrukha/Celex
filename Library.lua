@@ -1464,7 +1464,7 @@ do -- Library
                 }
                 --
                 do -- Objects
-                    Binds.Objects["Outline"], Binds.Objects["Frame"] = Library.Objects:Outline(Vector2.new(0, 0.5), Binds.Window.Objects["Screen"], UDim2.new(0, 8, 0.5, 0), UDim2.new(0, 175, 0, 200), "Light Background", "Dark Inline", 1000)
+                    Binds.Objects["Outline"], Binds.Objects["Frame"] = Library.Objects:Outline(Vector2.new(0, 0.5), Binds.Window.Objects["Screen"], UDim2.new(0, 8, 0.5, 0), UDim2.new(0, 175, 0, 200), "Light Background", "Dark Inline")
                     --
                     Binds.Objects["Gradient"] = Library.Objects:Holder(nil, Binds.Objects["Frame"], UDim2.new(0, 1, 0, 1), UDim2.new(1, -2, 0, 2))
                     --
@@ -1476,7 +1476,7 @@ do -- Library
                     --
                     Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background")
                     --
-                    --Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 0, 0, 2), UDim2.new(1, 0, 0, -4))
+                    Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 0, 0, 2), UDim2.new(1, 0, 0, -4))
                 end
                 --
                 do -- Setup
