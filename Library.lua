@@ -1481,7 +1481,7 @@ do -- Library
                 end
                 --
                 do -- Functions
-                    function Binds:Insert(Name, State)
+                    function Binds:Insert(Content)
                         local Item = {
                             Objects = {}
                         }
@@ -1489,8 +1489,8 @@ do -- Library
                         do -- Objects
                             Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17))
                             --
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Name, "Light Text", nil, 1000)
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), "[Ins]", "Light Text", "Right", 1000)
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Content.Name, "Light Text", nil, 1000)
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), ("[%s : %s]"):format(Content.Short, Content.Active), "Light Text", "Right", 1000)
                         end
                         --
                         do -- Functions
@@ -1505,7 +1505,7 @@ do -- Library
                 end
                 --
                 do -- Setup
-                    Binds:Insert("Aimbot", true)
+                    Binds:Insert({Name = "Aimbot", Short = "Ins", Active = true})
                     --
                     Flags[Binds.Window]["Binds"] = Binds
                     --
@@ -2555,7 +2555,8 @@ do -- Library
                         Section = Self.Section,
                         Self = Self,
                         --
-                        State = (Utility.Table:Property(Properties, "State", "Current", "Default", "Color", "Def")),
+                        Name = (Utility.Table:Property(Properties, "Name", "Text")),
+                        State = (Utility.Table:Property(Properties, "State", "Current", "Default", "Bind", "Def")),
                         Mode = (Utility.Table:Property(Properties, "Mode", "Type") or "On Hold"),
                         Disable = (Utility.Table:Property(Properties, "Disabled", "Disable", "NoMode") or false),
                         Flag = (Utility.Table:Property(Properties, "Flag", "Pointer")),
@@ -2579,7 +2580,9 @@ do -- Library
                                 Content.State = ((State and (State.EnumType or State.KeyCode)) and {State.EnumType == Enum.KeyCode and "KeyCode" or "UserInputType", State.Name} or {})
                             end
                             --
-                            Content.Objects["Value"].Text = ("[%s]"):format(#Content.State > 0 and (Utility.Inputs.Shortened[Content.State[2]] or Content.State[2]) or "..")
+                            Content.Short = (#Content.State > 0 and (Utility.Inputs.Shortened[Content.State[2]] or Content.State[2]))
+                            --
+                            Content.Objects["Value"].Text = ("[%s]"):format(Content.Short or "..")
                             --
                             Content:Adjust(Content.Mode)
                         end
