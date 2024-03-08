@@ -1506,7 +1506,7 @@ do -- Library
                     end
                     --
                     function Binds:Update()
-                        Item.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((#Binds.Items * 18) + 28 + 9))
+                        Binds.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((#Binds.Items * 18) + 28 + 9))
                     end
                 end
                 --
