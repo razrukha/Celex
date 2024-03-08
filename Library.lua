@@ -1490,7 +1490,7 @@ do -- Library
                             Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17))
                             --
                             Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Content.Name, "Light Text", nil, 1000)
-                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), ("[%s : %s]"):format(Content.Short, Content.Active), "Light Text", "Right", 1000)
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N")), "Light Text", "Right", 1000)
                         end
                         --
                         do -- Functions
