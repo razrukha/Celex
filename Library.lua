@@ -1454,6 +1454,7 @@ do -- Library
             function Library:Binds()
                 local Binds = {
                     Objects = {},
+                    Items = {},
                     --
                     Refresh = 5,
                     State = true,
@@ -1477,13 +1478,35 @@ do -- Library
                     Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background", nil, nil, 1000)
                     --
                     Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 0, 0, 2), UDim2.new(1, 0, 1, -4))
-                    --
-                    for Index = 0, 4 do
-                        Binds.Objects["Text"] = Library.Objects:Text(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, Index * 15), UDim2.new(1, 0, 0, 15), Index, "Light Text", "Center", 1000)
+                end
+                --
+                do -- Functions
+                    function Binds:Insert(Name, State)
+                        local Item = {
+                            Objects = {}
+                        }
+                        --
+                        do -- Objects
+                            Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 18))
+                            --
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, Index * 15), UDim2.new(1, 0, 0, 15), Name, "Light Text", nil, 1000)
+                            Item.Objects["Text"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, Index * 15), UDim2.new(1, 0, 0, 15), "[Ins]", "Light Text", "Right", 1000)
+                        end
+                        --
+                        do -- Functions
+                        end
+                        --
+                        do -- Setup
+                            Binds.Items[#Binds.Items + 1] = Item
+                            --
+                            return Item
+                        end
                     end
                 end
                 --
                 do -- Setup
+                    Binds:Insert("Aimbot", true)
+                    --
                     Flags[Binds.Window]["Binds"] = Binds
                     --
                     return Binds
