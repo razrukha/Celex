@@ -1495,7 +1495,7 @@ do -- Library
                         }
                         --
                         do -- Objects
-                            Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17))
+                            Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17), false)
                             --
                             Item.Objects["Name"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Content.Name, "Light Text", nil, 1000)
                             Item.Objects["State"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), "", "Light Text", "Right", 1000)
@@ -1503,9 +1503,7 @@ do -- Library
                         --
                         do -- Functions
                             function Item:Update()
-                                warn(Content.Short)
-                                --
-                                Item.Active = (Content.Short ~= false)
+                                Item.Active = (Content.Short == "string")
                                 --
                                 if Content.Short then
                                     Item.Objects["Holder"].Visible = true
@@ -1519,8 +1517,6 @@ do -- Library
                         --
                         do -- Setup
                             Binds.Items[#Binds.Items + 1] = Item
-                            --
-                            Item:Update()
                             --
                             return Item
                         end
@@ -2618,6 +2614,8 @@ do -- Library
                             Content.Objects["Value"].Text = ("[%s]"):format(Content.Short or "..")
                             --
                             Content:Adjust(Content.Mode)
+                            --
+                            Content.Item:Update()
                         end
                         --
                         function Content:Get(Raw)
@@ -2634,6 +2632,8 @@ do -- Library
                             Content.Mode = Mode
                             --
                             Content.Active = (Content.Mode == "Off Hold" or Content.Mode == "Off Toggle" or Content.Mode == "Always On")
+                            --
+                            Content.Item:Update()
                         end
                         --
                         function Content:Update(Type)
@@ -2651,6 +2651,8 @@ do -- Library
                             --
                             if Content.Active ~= Previous then
                                 Utility.General:Call(Content.Callback, Content.Active, Previous)
+                                --
+                                Content.Item:Update()
                             end
                         end
                         --
@@ -2682,7 +2684,7 @@ do -- Library
                         end
                         --
                         if Content.Name then
-                            Flags[Content.Window]["Binds"]:Insert(Content)
+                            Content.Item = Flags[Content.Window]["Binds"]:Insert(Content)
                         end
                         --
                         return Content
