@@ -1497,13 +1497,14 @@ do -- Library
                         do -- Objects
                             Item.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 0, 17))
                             --
-                            warn(Content.Name)
                             Item.Objects["Name"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), Content.Name, "Light Text", nil, 1000)
                             Item.Objects["State"] = Library.Objects:Text(nil, Item.Objects["Holder"], UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), "", "Light Text", "Right", 1000)
                         end
                         --
                         do -- Functions
                             function Item:Update()
+                                warn(Content.Short)
+                                --
                                 Item.Active = (Content.Short ~= false)
                                 --
                                 if Content.Short then
