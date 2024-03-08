@@ -1370,7 +1370,7 @@ do -- Library
                 }
                 --
                 do -- Objects
-                    Watermark.Objects["Outline"], Watermark.Objects["Frame"] = Library.Objects:Outline(Vector2.new(1, 0), Watermark.Window.Objects["Screen"], UDim2.new(1, -(54 + 8), 0, 8), UDim2.new(0, 200, 0, 25), "Light Background", "Dark Inline")
+                    Watermark.Objects["Outline"], Watermark.Objects["Frame"] = Library.Objects:Outline(Vector2.new(1, 0), Watermark.Window.Objects["Screen"], UDim2.new(1, -(54 + 8), 0, 8), UDim2.new(0, 200, 0, 25), "Light Background", "Dark Inline", 1000)
                     --
                     Watermark.Objects["Gradient"] = Library.Objects:Holder(nil, Watermark.Objects["Frame"], UDim2.new(0, 1, 0, 1), UDim2.new(1, -2, 0, 2))
                     --
@@ -1464,7 +1464,7 @@ do -- Library
                 }
                 --
                 do -- Objects
-                    Binds.Objects["Outline"], Binds.Objects["Frame"] = Library.Objects:Outline(Vector2.new(0, 0.5), Binds.Window.Objects["Screen"], UDim2.new(0, 8, 0.5, 0), UDim2.new(0, 175, 0, 200), "Light Background", "Dark Inline")
+                    Binds.Objects["Outline"], Binds.Objects["Frame"] = Library.Objects:Outline(Vector2.new(0, 0.5), Binds.Window.Objects["Screen"], UDim2.new(0, 8, 0.5, 0), UDim2.new(0, 175, 0, 200), "Light Background", "Dark Inline", 1000)
                     --
                     Binds.Objects["Gradient"] = Library.Objects:Holder(nil, Binds.Objects["Frame"], UDim2.new(0, 1, 0, 1), UDim2.new(1, -2, 0, 2))
                     --
@@ -1475,6 +1475,8 @@ do -- Library
                     Binds.Objects["Text"] = Library.Objects:Text(nil, Binds.Objects["Text_Outline"], UDim2.new(0, -1, 0, -1), UDim2.new(1, 0, 1, 0), "Binds", "Light Text", "Center")
                     --
                     Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background")
+                    --
+                    Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 0, 0, 2), UDim2.new(1, 0, 0, -4))
                 end
                 --
                 do -- Setup
