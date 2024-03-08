@@ -1503,6 +1503,8 @@ do -- Library
                         --
                         do -- Functions
                             function Item:Update()
+                                warn(Content.Name, Content.Short)
+                                --
                                 self.Active = (typeof(Content.Short) == "string")
                                 --
                                 if Content.Short then
