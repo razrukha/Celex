@@ -1504,13 +1504,19 @@ do -- Library
                             return Item
                         end
                     end
+                    --
+                    function Binds:Update()
+                        Item.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((#Binds.Items * 18) + 28 + 9))
+                    end
                 end
                 --
                 do -- Setup
+                    Flags[Binds.Window]["Binds"] = Binds
+                    --
                     Binds:Insert({Name = "Assist", Short = "Ins", Active = true})
                     Binds:Insert({Name = "Silent", Short = "E", Active = false})
                     --
-                    Flags[Binds.Window]["Binds"] = Binds
+                    Binds:Update()
                     --
                     return Binds
                 end
