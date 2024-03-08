@@ -1468,13 +1468,13 @@ do -- Library
                     --
                     Binds.Objects["Gradient"] = Library.Objects:Holder(nil, Binds.Objects["Frame"], UDim2.new(0, 1, 0, 1), UDim2.new(1, -2, 0, 2))
                     --
-                    Binds.Objects["Gradient_Line1"] = Library.Objects:Frame(nil, "Light Contrast", nil, nil, nil, 0, Binds.Objects["Gradient"], nil, UDim2.new(1, 0, 0, 2))
-                    Binds.Objects["Gradient_Line2"] = Library.Objects:Frame(nil, "Outline", 0.45, nil, nil, 0, Binds.Objects["Gradient"], UDim2.new(0, 0, 0, 1), UDim2.new(1, 0, 0, 1))
+                    Binds.Objects["Gradient_Line1"] = Library.Objects:Frame(nil, "Light Contrast", nil, nil, nil, 0, Binds.Objects["Gradient"], nil, UDim2.new(1, 0, 0, 2), nil, 1000)
+                    Binds.Objects["Gradient_Line2"] = Library.Objects:Frame(nil, "Outline", 0.45, nil, nil, 0, Binds.Objects["Gradient"], UDim2.new(0, 0, 0, 1), UDim2.new(1, 0, 0, 1), nil, 1000)
                     --
-                    Binds.Objects["Text_Outline"] = Library.Objects:Text(Vector2.new(0, 0), Binds.Objects["Frame"], UDim2.new(0, 1, 0, 5), UDim2.new(1, 0, 0, 15), "", "Outline", "Center")
-                    Binds.Objects["Text"] = Library.Objects:Text(nil, Binds.Objects["Text_Outline"], UDim2.new(0, -1, 0, -1), UDim2.new(1, 0, 1, 0), "Binds", "Light Text", "Center")
+                    Binds.Objects["Text_Outline"] = Library.Objects:Text(Vector2.new(0, 0), Binds.Objects["Frame"], UDim2.new(0, 1, 0, 5), UDim2.new(1, 0, 0, 15), "", "Outline", "Center", 1000)
+                    Binds.Objects["Text"] = Library.Objects:Text(nil, Binds.Objects["Text_Outline"], UDim2.new(0, -1, 0, -1), UDim2.new(1, 0, 1, 0), "Binds", "Light Text", "Center", 1000)
                     --
-                    Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background")
+                    Binds.Objects["Holder_Outline"], Binds.Objects["Holder_Frame"] = Library.Objects:Outline(nil, Binds.Objects["Frame"], UDim2.new(0, 2, 0, 22), UDim2.new(1, -4, 1, -24), "Lighter Background", nil, 1000)
                     --
                     Binds.Objects["Holder"] = Library.Objects:Holder(nil, Binds.Objects["Holder_Frame"], UDim2.new(0, 0, 0, 2), UDim2.new(1, 0, 0, -4))
                 end
