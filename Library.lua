@@ -2660,7 +2660,7 @@ do -- Library
                         end
                         --
                         if Content.Name then
-                            Binds:Insert(Content)
+                            Flags[Content.Window]["Binds"]:Insert(Content)
                         end
                         --
                         return Content
