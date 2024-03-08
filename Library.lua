@@ -1489,7 +1489,9 @@ do -- Library
                 do -- Functions
                     function Binds:Insert(Content)
                         local Item = {
-                            Objects = {}
+                            Objects = {},
+                            --
+                            Active = false
                         }
                         --
                         do -- Objects
@@ -1501,6 +1503,8 @@ do -- Library
                         --
                         do -- Functions
                             function Item:Update()
+                                Item.Active = (Content.Short ~= false)
+                                --
                                 if Content.Short then
                                     Item.Objects["Holder"].Visible = true
                                     --
@@ -1521,7 +1525,15 @@ do -- Library
                     end
                     --
                     function Binds:Update()
-                        Binds.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((#Binds.Items * 18) + 28 + 9))
+                        local Count = 0
+                        --
+                        for Index, Value in next, Binds.Items do
+                            if Value.Active then
+                                Count += 1
+                            end
+                        end
+                        --
+                        Binds.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((Count * 18) + 28 + 9))
                     end
                 end
                 --
