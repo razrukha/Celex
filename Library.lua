@@ -85,6 +85,22 @@ local Library, Utility, Flags = {
                 ["Light Text"] = Color3.fromRGB(180, 180, 180),
                 ["Dark Text"] = Color3.fromRGB(140, 140, 140),
                 ["Darker Text"] = Color3.fromRGB(90, 90, 90)
+            },
+            Magenta = {
+                ["Light Contrast"] = Color3.fromRGB(166, 64, 89),
+                ["Dark Contrast"] = Color3.fromRGB(166, 64, 89),
+                ["Arrow Color"] = Color3.fromRGB(166, 64, 89),
+                ["Lighter Background"] = Color3.fromRGB(13, 13, 13),
+                ["Light Background"] = Color3.fromRGB(10, 10, 10),
+                ["Dark Background"] = Color3.fromRGB(2, 2, 2),
+                ["Outline"] = Color3.fromRGB(0, 0, 0),
+                ["Lighter Inline"] = Color3.fromRGB(32, 32, 32),
+                ["Light Inline"] = Color3.fromRGB(26, 26, 26),
+                ["Dark Inline"] = Color3.fromRGB(20, 20, 20),
+                ["Lighter Text"] = Color3.fromRGB(175, 175, 175),
+                ["Light Text"] = Color3.fromRGB(145, 145, 145),
+                ["Dark Text"] = Color3.fromRGB(120, 120, 120),
+                ["Darker Text"] = Color3.fromRGB(50, 50, 50)
             }
         }
     },
