@@ -1503,8 +1503,6 @@ do -- Library
                         --
                         do -- Functions
                             function Item:Update()
-                                warn(Content.Name, Content.Short)
-                                --
                                 self.Active = (typeof(Content.Short) == "string")
                                 --
                                 if Content.Short then
@@ -1535,7 +1533,7 @@ do -- Library
                             end
                         end
                         --
-                        Binds.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((Count * 18) + 28 + 9))
+                        Binds.Objects["Outline"].Size = UDim2.new(0, 175, 0, ((Count * 18) + 28 + 5))
                     end
                 end
                 --
