@@ -965,10 +965,10 @@ do -- Library
                             --
                             do -- Objects
                                 local SelfPosition = (Self.Objects["Outline"].AbsolutePosition - Self.Section.Objects["Content"].AbsolutePosition)
-                                local OutlinePosition = UDim2.new(0, SelfPosition.X, 0, math.round(SelfPosition.Y + Self.Objects["Outline"].AbsoluteSize.Y + 4))
+                                local OutlinePosition = UDim2.new(0, math.round(SelfPosition.X + Self.Objects["Outline"].AbsoluteSize.X), 0, math.round(SelfPosition.Y + Self.Objects["Outline"].AbsoluteSize.Y + 4))
                                 local OutlineSize = Vector2.new((Self.Alpha and 200 or (200 - 16)), 165)
                                 --
-                                Content.Objects["Outline"], Content.Objects["Frame"] = Library.Objects:Outline(nil, Self.Section.Objects["Open"], OutlinePosition, UDim2.new(0, OutlineSize.X, 0, OutlineSize.Y), "Lighter Background", nil, nil, 2)
+                                Content.Objects["Outline"], Content.Objects["Frame"] = Library.Objects:Outline(Vector2.new(1, 0), Self.Section.Objects["Open"], OutlinePosition, UDim2.new(0, OutlineSize.X, 0, OutlineSize.Y), "Lighter Background", nil, nil, 2)
                                 --
                                 local SaturationSize = (OutlineSize.X - 14 - ((13 + 3) * (Self.Alpha and 2 or 1)))
                                 --
@@ -2633,9 +2633,7 @@ do -- Library
                         function Content:Adjust(Mode)
                             Content.Mode = Mode
                             --
-                            warn(Content.Mode)
                             Content.Active = (Content.Mode == "Off Hold" or Content.Mode == "Off Toggle" or Content.Mode == "Always On")
-                            print(Content.Active)
                             --
                             Content.Item:Update()
                         end
