@@ -1189,9 +1189,9 @@ do -- Library
                             --
                             do -- Objects
                                 local SelfPosition = (Self.Objects["Holder"].AbsolutePosition - Self.Section.Objects["Content"].AbsolutePosition)
-                                local OutlinePosition = UDim2.new(0, math.round(SelfPosition.X + Self.Objects["Holder"].AbsoluteSize.X + 1), 0, math.round(SelfPosition.Y + Self.Objects["Holder"].AbsoluteSize.Y + 2))
+                                local OutlinePosition = UDim2.new(0, (SelfPosition.X + 1), 0, math.round(SelfPosition.Y + Self.Objects["Holder"].AbsoluteSize.Y + 2))
                                 --
-                                Content.Objects["Outline"], Content.Objects["Frame"] = Library.Objects:Outline(Vector2.new(1, 0), Self.Section.Objects["Open"], OutlinePosition, UDim2.new(0, 86, 0, ((#Utility.Inputs.Modes * 16) + 6)), "Lighter Background", nil, nil, 2)
+                                Content.Objects["Outline"], Content.Objects["Frame"] = Library.Objects:Outline(nil, Self.Section.Objects["Open"], OutlinePosition, UDim2.new(0, 86, 0, ((#Utility.Inputs.Modes * 16) + 6)), "Lighter Background", nil, nil, 2)
                                 --
                                 Content.Objects["List"] = Library.Objects:List(nil, Content.Objects["Frame"], nil, nil, nil)
                                 Content.Objects["Padding"] = Library.Objects:Padding(Content.Objects["List"], UDim.new(0, 2), UDim.new(0, 2))
