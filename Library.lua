@@ -2633,7 +2633,9 @@ do -- Library
                         function Content:Adjust(Mode)
                             Content.Mode = Mode
                             --
+                            wrn(Content.Mode)
                             Content.Active = (Content.Mode == "Off Hold" or Content.Mode == "Off Toggle" or Content.Mode == "Always On")
+                            print(Content.Active)
                             --
                             Content.Item:Update()
                         end
