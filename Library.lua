@@ -1508,7 +1508,7 @@ do -- Library
                                 if Content.Short then
                                     self.Objects["Holder"].Visible = true
                                     --
-                                    self.Objects["State"].Text = ("[%s : %s]"):format(Content.Short, (Content.Active and "Y" or "N"))
+                                    self.Objects["State"].Text = ("[ %s : %s ]"):format(Content.Short, (Content.Active and "Y" or "N"))
                                 else
                                     self.Objects["Holder"].Visible = false
                                 end
